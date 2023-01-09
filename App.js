@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+
 import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useReducer, useState } from 'react';
@@ -8,7 +8,7 @@ import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
 import  {useFonts} from 'expo-font';
 import  AppLoading from 'expo-app-loading';
-
+import {StatusBar}from 'expo-status-bar';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();
@@ -32,8 +32,9 @@ export default function App() {
     setGameIsOver(false);
   }
 
-  function gameOverHandler() {
+  function gameOverHandler(numberOfRounds) {
     setGameIsOver(true);
+    setGuessRounds(numberOfRounds);
   }
 
   function startNewGameHandler(){
@@ -56,6 +57,8 @@ export default function App() {
 
 
   return (
+    <>
+    <StatusBar style='light'></StatusBar>
     <LinearGradient colors={[Colors.primary700, Colors.accent500]} style={styles.rootScreen}>
       <SafeAreaView style={styles.rootScreen}>
         <ImageBackground
@@ -71,7 +74,9 @@ export default function App() {
         </ImageBackground>
       </SafeAreaView>
     </LinearGradient>
+    </>
   );
+ 
 }
 
 const styles = StyleSheet.create({

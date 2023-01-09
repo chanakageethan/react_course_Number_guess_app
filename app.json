@@ -3,7 +3,7 @@
     "name": "react_course_Number_guess_app",
     "slug": "react_course_Number_guess_app",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
